@@ -2,6 +2,7 @@ import android.util.JsonWriter;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.PluginResult;
 import org.java_websocket.handshake.ServerHandshake;
+import org.java_websocket.drafts.Draft_17;
 
 import java.io.IOException;
 import java.io.StringWriter;
@@ -15,7 +16,7 @@ class WebSocketClient extends org.java_websocket.client.WebSocketClient {
     private CallbackContext callbackContext;
 
     WebSocketClient(URI serverUri) {
-        super(serverUri);
+        super(serverUri, new Draft_17());
     }
 
     void connect(CallbackContext callbackContext) {
